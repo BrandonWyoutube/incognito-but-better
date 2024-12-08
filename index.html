@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Browser</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .browser-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .url-bar {
+      display: flex;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+    }
+    .url-bar input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .url-bar button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .url-bar button:hover {
+      background-color: #0056b3;
+    }
+    iframe {
+      flex: 1;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="browser-container">
+    <div class="url-bar">
+      <input id="urlInput" type="text" placeholder="Enter a URL (e.g., https://example.com)" />
+      <button onclick="navigate()">Go</button>
+    </div>
+    <iframe id="browserFrame" src="about:blank"></iframe>
+  </div>
+
+  <script>
+    function navigate() {
+      const input = document.getElementById('urlInput');
+      const iframe = document.getElementById('browserFrame');
+      let url = input.value;
+
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+      }
+
+      iframe.src = url;
+    }
+  </script>
+</body>
+</html>
