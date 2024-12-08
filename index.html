@@ -3,43 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Browser</title>
+  <title>Beautiful Browser</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-    }
-    .browser-container {
+      font-family: 'Arial', sans-serif;
+      background: url('https://i.imgur.com/Qd1k8dM.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
       display: flex;
       flex-direction: column;
       height: 100vh;
     }
+    .browser-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      backdrop-filter: blur(8px) brightness(0.8);
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+      margin: 20px;
+      overflow: hidden;
+    }
     .url-bar {
       display: flex;
       padding: 10px;
-      background-color: #f4f4f4;
-      border-bottom: 1px solid #ccc;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
     .url-bar input {
       flex: 1;
       padding: 10px;
       font-size: 16px;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 4px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    .url-bar input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
     }
     .url-bar button {
       margin-left: 10px;
       padding: 10px 20px;
       font-size: 16px;
-      background-color: #007bff;
       color: white;
+      background: linear-gradient(45deg, #ff7f50, #ff4500);
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     .url-bar button:hover {
-      background-color: #0056b3;
+      background: linear-gradient(45deg, #ff6347, #ff0000);
     }
     iframe {
       flex: 1;
