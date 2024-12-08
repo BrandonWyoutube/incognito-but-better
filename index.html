@@ -91,13 +91,13 @@
         url = 'https://' + url;
       }
 
-      iframe.src = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
+      iframe.src = url;
     }
 
     // Function to quickly navigate to predefined websites
     function quickNavigate(url) {
       const iframe = document.getElementById('browserFrame');
-      iframe.src = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
+      iframe.src = url;
     }
   </script>
 </body>
