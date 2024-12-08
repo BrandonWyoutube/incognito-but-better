@@ -9,13 +9,15 @@
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: url('./B777X.jpeg') no-repeat center center fixed;
-      background-size: cover;
       color: white;
       display: flex;
       flex-direction: column;
       height: 100vh;
+      background-size: cover;
+      background-position: center;
+      transition: background 1s ease-in-out;
     }
+
     .url-bar {
       display: flex;
       align-items: center;
@@ -51,6 +53,7 @@
     .url-bar button:hover {
       background: rgba(255, 255, 255, 0.4);
     }
+
     iframe {
       flex: 1;
       border: none;
@@ -68,6 +71,17 @@
   <iframe id="browserFrame" src="about:blank"></iframe>
 
   <script>
+    // Function to randomly select and set the background image
+    function setRandomBackground() {
+      const images = ['B777X.jpeg', 'A350-1000.jpg'];
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      document.body.style.backgroundImage = `url('./${randomImage}')`;
+    }
+
+    // Call the function to set the background image when the page loads
+    setRandomBackground();
+
+    // Function to navigate to a custom URL
     function navigate() {
       const input = document.getElementById('urlInput');
       const iframe = document.getElementById('browserFrame');
@@ -77,12 +91,13 @@
         url = 'https://' + url;
       }
 
-      iframe.src = url;
+      iframe.src = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
     }
 
+    // Function to quickly navigate to predefined websites
     function quickNavigate(url) {
       const iframe = document.getElementById('browserFrame');
-      iframe.src = url;
+      iframe.src = `http://localhost:3000/proxy?url=${encodeURIComponent(url)}`;
     }
   </script>
 </body>
